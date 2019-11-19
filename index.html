@@ -1,0 +1,64 @@
+<!--/////////////////////////////////////
+//
+//  Front-End Login Page
+// 
+//    Michael Aboff
+//    mwaboff@gmail.com
+//    https://github.com/mwaboff
+//
+//    DSN6040 - Web Design and Javascript
+//
+/////////////////////////////////////-->
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DSN6042 - Front-End Login Page</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/sha256.js"></script>
+
+    <script type="text/javascript" src="login-project.js"></script>
+    <script type="text/javascript" src="user.js"></script>
+
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="container">
+        <div id="login_container">
+            
+            <div class="login_form">
+                <div class="title_container">
+                    <div id="title">Login</div>
+                </div>
+                <div class="the_form">
+                    <input type="text" class="input" id="username" placeholder="Username"></input>
+                    <input type="password" class="input" id="password" placeholder="Password"></input>
+                    <div type="submit" class="input submit" id="submit_button">Login!</div>
+                </div>
+            </div>
+        </div>
+        <div class="hidden" id="locked_content_container">
+            <div id="navbar">
+                <div id="welcome_text_container">Welcome!</div>
+                <div type="submit" class="input submit" id="logout_button">Logout!</div>
+            </div>
+            <div id="locked_content">
+            </div>
+        </div>
+        <span class="signature" id="signature">// Written by Michael Aboff - mwaboff.com</span>
+
+    </div>
+
+    <script>
+        (function() {
+            LoginProject.initialize();
+        })();
+    </script>
+
+</body>
+
+</html>
