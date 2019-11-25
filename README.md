@@ -1,7 +1,11 @@
 # Front-End Login Page
 
+## Usage Note
+**Default Username:** admin
+**Default Password:** password
+
 ## Assignment Information
-Week 3 Programming Lab  
+Week 3 & 4 Programming Lab  
 Michael Aboff  
 Wilmington University  
 Professor Brian Jorgage  
