@@ -1,7 +1,7 @@
 # Front-End Login Page
 
 ## Usage Note
-**Default Username:** admin
+**Default Username:** admin  
 **Default Password:** password
 
 ## Assignment Information
