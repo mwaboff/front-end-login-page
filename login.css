@@ -149,6 +149,38 @@ body {
     align-self: center;
 }
 
+.error {
+    border-color: red;
+}
+
+/*Warning Alert*/
+.alert_container {
+    position: fixed;
+    right: 0;
+    top: 0;
+
+    margin: 5px;
+    padding: 10px;
+    width: 400px;
+
+    color: white;
+    background: red;
+
+    border-radius: 5px;
+
+    user-select: none;
+}
+
+.offscreen {
+    opacity: 0%;
+    transition: opacity 500ms;
+
+}
+
+.onscreen {
+    opacity: 100%;
+    transition: opacity 250ms;
+}
 
 /*Helper*/
 .hidden {

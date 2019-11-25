@@ -18,6 +18,7 @@
 
   // Initializing variables.
   var USER;
+  var ERROR_TIMER = null;
   const DEFAULT_USERNAME = LoginProject.DEFAULT_USERNAME = "admin";
   const DEFAULT_PASSWORD = LoginProject.DEFAULT_PASSWORD = "password";
 
@@ -57,6 +58,7 @@
   */
   var clickLogoutButton = function() {
     showLoginPage();
+    hideErrorPopup();
   }
 
 
@@ -81,6 +83,7 @@
   var manageLogin = function(is_valid) {
     if (is_valid) {
       showLockedPage();
+      clearErrorHighlight();
     } else {
       badLogin();
     }
@@ -99,10 +102,22 @@
 
 
   /**
+  * Removes any red highlighting due to previous bad login attempts.
+  */
+  var clearErrorHighlight = function() {
+    let username_box = document.getElementById("username");
+    let password_box = document.getElementById("password");
+    username_box.classList.remove("error");
+    password_box.classList.remove("error");
+  }
+
+
+  /**
   * Notifies the user that their login credentials are bad.
   */
   var badLogin = function() {
-    alert("Either your username or password is incorrect.");
+    showErrorHighlight();
+    startErrorPopup();
   }
 
 
@@ -115,5 +130,49 @@
     login_page.classList.remove("hidden");
     locked_page.classList.add("hidden");
   }
+
+
+  /**
+  * Outlines the username and password boxes in red when login is bad.
+  */
+  var showErrorHighlight = function() {
+    let username_box = document.getElementById("username");
+    let password_box = document.getElementById("password");
+    username_box.classList.add("error");
+    password_box.classList.add("error");
+  }
+
+
+  /**
+  * Start timeout for the error popup when login is bad.
+  */
+  var startErrorPopup = function() {
+    clearTimeout(ERROR_TIMER);
+    showErrorPopup();
+    ERROR_TIMER = setTimeout(hideErrorPopup, 4000);
+  }
+
+
+  /**
+  * Display the error message.
+  */
+  var showErrorPopup = function() {
+    let error_popup = document.getElementById("error_popup");
+    error_popup.classList.remove("offscreen");
+    error_popup.classList.add("onscreen");
+  }
+
+
+  /**
+  * Hide the error message.
+  */
+  var hideErrorPopup = function() {
+    let error_popup = document.getElementById("error_popup");
+    error_popup.classList.remove("onscreen");
+    error_popup.classList.add("offscreen");
+    clearTimeout(ERROR_TIMER);
+    ERROR_TIMER = null;
+  }
+
 
 })();
